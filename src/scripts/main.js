@@ -25,18 +25,15 @@ document.addEventListener('click', (e) => {
     const rowsLength = row.querySelectorAll('tr').length;
 
     if (rowsLength > 2) {
+      checkButtonState();
       row.lastElementChild.remove();
-    } else {
-      removeRow.disabled = !removeRow.disabled;
     }
-
-    checkButtonState();
   }
 
-  const column = Array.from(row.children);
+  const rows = Array.from(row.children);
 
   if (e.target.closest('.append-column')) {
-    column.forEach((element) => {
+    rows.forEach((element) => {
       element.append(document.createElement('td'));
     });
 
@@ -44,7 +41,7 @@ document.addEventListener('click', (e) => {
   }
 
   if (e.target.closest('.remove-column')) {
-    column.forEach((element) => {
+    rows.forEach((element) => {
       element.lastElementChild.remove();
     });
 
