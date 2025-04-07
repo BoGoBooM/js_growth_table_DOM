@@ -25,8 +25,8 @@ document.addEventListener('click', (e) => {
     const rowsLength = row.querySelectorAll('tr').length;
 
     if (rowsLength > 2) {
-      checkButtonState();
       row.lastElementChild.remove();
+      checkButtonState();
     }
   }
 
